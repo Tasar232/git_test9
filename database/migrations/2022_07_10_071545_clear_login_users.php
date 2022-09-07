@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\ClearLoginAdmin;
+use App\Models\ClearLoginUser;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,6 +16,7 @@ class ClearLoginUsers extends Migration
     {
         Schema::create('clear_login_users', function (Blueprint $table) {
             $table->increments('id');
+            $table->char('type', 20);
             $table->char('surname', 80)->nullable(false);
             $table->char('name', 80)->nullable(false);
             $table->char('second_name', 80)->nullable(true);
@@ -24,7 +25,8 @@ class ClearLoginUsers extends Migration
             $table->timestamps();
         });
 
-        $admin = new ClearLoginAdmin;
+        $admin = new ClearLoginUser;
+        $admin->type = 'admin';
         $admin->login = 'admin';
         $admin->password = 'admin';
         $admin->surname = 'Админ';

@@ -43,7 +43,7 @@
         <div class="row mt-1">
             <div class="col-2 d-flex align-items-center justify-content-top flex-column">
                 @if ($stats)
-                <a href={{$href}}category=employers @class(["btn","col-12","m-1", "btn-outline-primary" =>
+                <a href="{{$href}}category=employers" @class(["btn","col-12","m-1", "btn-outline-primary" =>
                     !$employers, "btn-primary" => $employers])
                     role="button">Работники ППЭ</a>
                 <a href={{$href}}category=experts @class(["btn","col-12","m-1", "btn-outline-primary" =>
@@ -53,7 +53,7 @@
                     !$students, "btn-primary" => $students])
                     role="button">Обучающиеся</a>
                 @else
-                <a href={{$href}}category=employers @class(["btn","col-12","m-1", "btn-outline-primary" =>
+                <a href="{{$href}}category=employers&post=1" @class(["btn","col-12","m-1", "btn-outline-primary" =>
                     !$employers, "btn-primary" => $employers])
                     role="button">Работники ППЭ</a>
                 <a href={{$href}}category=experts @class(["btn","col-12","m-1", "btn-outline-primary" =>

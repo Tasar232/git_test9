@@ -27,7 +27,7 @@ class LoginController extends Controller
                 case "coordinator":
                     return redirect(route('coordinator'));
                     break;
-                case "ppe_worker":
+                case "worker":
                     return redirect(route('ppe_worker'));
                     break;
             }

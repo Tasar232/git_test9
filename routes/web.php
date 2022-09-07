@@ -53,7 +53,18 @@ Route::get('/admin/add_empl', function (Request $request) {
 })->middleware('auth')->name('add_empl');
 Route::post('/admin/add_empl', function (Request $request) {
     return AdminController::add_empl($request);
-});
+})->middleware('auth')->name('add_empl_post');
+
+Route::get('/admin/add_coordinator', function (Request $request) {
+    return AdminController::add_coordinator();
+})->middleware('auth')->name('add_coordinator');
+
+Route::get('/admin/edit', function (Request $request) {
+    return AdminController::edit($request);
+})->middleware('auth');
+
+
+
 
 Route::get('/coordinator', function (Request $request) {
     return view('coordinator.coordinator');

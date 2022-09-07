@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Models\ClearLoginAdmin;
+use App\Models\ClearLoginUser;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Coordinator;
@@ -39,9 +39,14 @@ class ClearLoginController extends Controller
             $max_created = 0;
             $max_updated = 0;
         }
-        $clear_login_created = ClearLoginAdmin::where('created_at', '>', $max_created)->get();
-        $clear_login_updated = ClearLoginAdmin::where('created_at', '>', $max_updated)->get();
-
+        $clear_login_created = ClearLoginUser::where([
+            ['created_at', '>', $max_created],
+            ['type', '=', 'admin']
+            ])->get();
+        $clear_login_updated = ClearLoginUser::where([
+            ['updated_at', '>', $max_updated],
+            ['type', '=', 'admin']
+            ])->get();
 
         foreach ($clear_login_created as $user_create) {
             $user = new User;
